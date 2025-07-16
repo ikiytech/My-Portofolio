@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charSet="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Muhammad Rifki - Portofolio Pribadi</title>
+    <meta name="description" content="Portofolio pribadi Muhammad Rifki, seorang mahasiswa Informatika yang berfokus pada pengembangan perangkat lunak, machine learning, front-end development, dan desain UI/UX."/>
+    <link rel="icon" href="https://placehold.co/16x16/9747FF/ffffff?text=MR" type="image/x-icon" sizes="16x16"/>
+    <link rel="icon" href="https://placehold.co/32x32/9747FF/ffffff?text=MR" type="image/png" sizes="32x32"/>
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Google Fonts: Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome CDN for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" xintegrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0V4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- AOS CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+
+    <style>
+        /* Custom styles for the switch */
+        .switch {
+            transition: background-color 0.3s;
+        }
+        .switch-dark-mode {
+            background-color: #4a5568; /* Dark mode background for switch */
+        }
+        .switch-light-mode {
+            background-color: #cbd5e0; /* Light mode background for switch */
+        }
+        .switch-knob {
+            transition: transform 0.3s;
+        }
+        .translate-x-6 {
+            transform: translateX(1.5rem); /* Adjust based on your needs */
+        }
+        .translate-x-1 {
+            transform: translateX(0.25rem); /* Adjust based on your needs */
+        }
+
+        /* Custom CSS for smooth scrolling and font */
+        html {
+            scroll-behavior: smooth;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        .text-shadow {
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
+        }
+        /* Aspect ratio for portfolio images */
+        .aspect-w-16 {
+            position: relative;
+            width: 100%;
+            padding-bottom: 56.25%; /* 16:9 aspect ratio */
+        }
+        .aspect-h-9 img {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        /* Custom purple color (kept for primary actions/accents) */
+        .bg-purple {
+            background-color: #9747FF;
+        }
+        .hover\:bg-purple-dark:hover {
+            background-color: #7a38cc; /* Slightly darker purple for hover */
+        }
+        .text-purple-600 {
+            color: #9747FF;
+        }
+        .hover\:text-purple-500:hover {
+            color: #a766ff;
+        }
+        .hover\:text-purple-400:hover {
+            color: #b888ff;
+        }
+
+        /* Ensure header doesn't overlap content */
+        .min-h-screen-minus-header {
+            min-height: calc(100vh - 4rem); /* Adjust 4rem based on your header height */
+        }
+    </style>
+</head>
+<body class="bg-white text-gray-800 dark:bg-gray-900 dark:text-gray-100 antialiased scroll-smooth">
+    <!-- Header -->
+    <header class="w-full py-4 border-b border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 fixed top-0 left-0 right-0 z-50 transition-colors duration-300" id="navbar">
+        <nav class="max-w-7xl mx-auto flex justify-between items-center px-4">
+            <div class="text-xl font-bold">
+                <a href="#home" class="flex items-center">
+                    <i class="fas fa-code text-purple-500 text-3xl mr-2"></i>
+                    <span>Muhammad Rifki</span>
+                </a>
+            </div>
+            <ul class="hidden md:flex space-x-6 items-center">
+                <li><a href="#home" class="hover:text-purple-500 transition-colors duration-300">Beranda</a></li>
+                <li><a href="#about" class="hover:text-purple-500 transition-colors duration-300">Tentang Saya</a></li>
+                <li><a href="#portfolio" class="hover:text-purple-500 transition-colors duration-300">Portofolio</a></li>
+                <li><a href="#experience" class="hover:text-purple-500 transition-colors duration-300">Pengalaman</a></li>
+                <li><a href="#certifications" class="hover:text-purple-500 transition-colors duration-300"></a></li>
+                <li><a href="#contact" class="hover:text-purple-500 transition-colors duration-300">Kontak</a></li>
+                <!-- Dark Mode Toggle -->
+                <li>
+                    <button class="relative inline-flex items-center h-6 rounded-full w-11 switch" id="theme-switch" role="switch" type="button" tabindex="0" aria-checked="false">
+                        <span class="sr-only">Enable dark mode</span>
+                        <span class="switch-knob inline-block w-4 h-4 bg-yellow-500 dark:bg-yellow-400 rounded-full transition duration-150 ease-in-out">
+                            <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 512 512" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M283.211 512c78.962 0 151.079-35.925 198.857-94.792 7.068-8.708-.639-21.43-11.562-19.35-124.203 23.654-238.262-71.576-238.262-196.954 0-72.222 38.662-138.635 101.498-174.394 9.686-5.512 7.25-20.197-3.756-22.23A258.156 258.156 0 0 0 283.211 0c-141.309 0-256 114.511-256 256 0 141.309 114.511 256 256 256z"></path>
+                            </svg>
+                        </span>
+                    </button>
+                </li>
+            </ul>
+            <!-- Mobile Menu Button -->
+            <div class="md:hidden flex items-center">
+                <button class="transition-colors duration-500 focus:outline-none text-gray-800 dark:text-white" aria-label="Toggle menu" id="mobile-menu-button">
+                    <i class="fas fa-bars text-2xl"></i>
+                </button>
+                <!-- Dark Mode Toggle for Mobile (optional, could be in menu) -->
+                <button class="ml-4 relative inline-flex items-center h-6 rounded-full w-11 switch" id="theme-switch-mobile" role="switch" type="button" tabindex="0" aria-checked="false">
+                    <span class="sr-only">Enable dark mode</span>
+                    <span class="switch-knob inline-block w-4 h-4 bg-yellow-500 dark:bg-yellow-400 rounded-full transition duration-150 ease-in-out">
+                        <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 512 512" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M283.211 512c78.962 0 151.079-35.925 198.857-94.792 7.068-8.708-.639-21.43-11.562-19.35-124.203 23.654-238.262-71.576-238.262-196.954 0-72.222 38.662-138.635 101.498-174.394 9.686-5.512 7.25-20.197-3.756-22.23A258.156 258.156 0 0 0 283.211 0c-141.309 0-256 114.511-256 256 0 141.309 114.511 256 256 256z"></path>
+                        </svg>
+                    </span>
+                </button>
+            </div>
+        </nav>
+        <!-- Mobile Menu Content -->
+        <div class="md:hidden transition-all duration-300 ease-in-out max-h-0 opacity-0 -translate-y-2 overflow-hidden bg-gray-100 dark:bg-gray-800" id="mobile-menu">
+            <ul class="flex flex-col items-center space-y-6 py-6">
+                <li><a href="#home" class="cursor-pointer text-lg font-medium transition-colors duration-300 hover:text-purple-500">Beranda</a></li>
+                <li><a href="#about" class="cursor-pointer text-lg font-medium transition-colors duration-300 hover:text-purple-500">Tentang Saya</a></li>
+                <li><a href="#portfolio" class="cursor-pointer text-lg font-medium transition-colors duration-300 hover:text-purple-500">Portofolio</a></li>
+                <li><a href="#experience" class="cursor-pointer text-lg font-medium transition-colors duration-300 hover:text-purple-500">Pengalaman</a></li>
+                <li><a href="#certifications" class="cursor-pointer text-lg font-medium transition-colors duration-300 hover:text-purple-500">Sertifikasi</a></li>
+                <li><a href="#contact" class="cursor-pointer text-lg font-medium transition-colors duration-300 hover:text-purple-500">Kontak</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <main class="pt-16"> <!-- Padding top to account for fixed header -->
+        <!-- Home Section -->
+        <section id="home" class="flex flex-col md:flex-row justify-between items-center max-w-7xl mx-auto py-20 px-4 min-h-screen-minus-header">
+            <!-- Text Content -->
+            <div class="flex-1 mb-10 md:mb-0 md:pr-10" data-aos="fade-right">
+                <h1 class="text-4xl md:text-5xl font-bold mb-4">
+                    Halo, saya <span id="typewriter" class="inline-block text-purple-600"></span>
+                </h1>
+                <p class="text-lg text-gray-600 dark:text-gray-300 mb-6">
+                    Saya seorang front-end developer dari Tangerang yang berfokus pada pengembangan antarmuka pengguna. Saya menikmati membangun situs web yang responsif dan aplikasi web yang intuitif.
+                </p>
+                <div class="mt-8 flex flex-wrap justify-center md:justify-start items-center space-x-0 space-y-4 sm:space-y-0 sm:space-x-4">
+                    <a href="https://simbelmawa.kemdikbud.go.id/magang/storage/fileUpload/2025/cv/bb4f6ece-35b5-456e-808b-879c74892fce.pdf" target="_blank" rel="noopener noreferrer" class="px-6 py-2 rounded-full transition inline-block font-semibold bg-purple text-white hover:bg-purple-dark">
+                        <i class="fas fa-download inline-block mr-2"></i>Download CV
+                    </a>
+                    <a href="#portfolio" class="px-6 py-2 rounded-full transition inline-block font-semibold bg-gray-200 text-gray-800 hover:bg-gray-300 dark:bg-gray-700 dark:text-gray-100 dark:hover:bg-gray-600">
+                        <i class="fas fa-briefcase inline-block mr-2"></i>Lihat Portofolio
+                    </a>
+                </div>
+                <div class="mt-8 flex space-x-6 justify-center md:justify-start">
+                    <a href="https://www.linkedin.com/in/muhammadrifki12/" target="_blank" rel="noopener noreferrer" class="text-gray-500 hover:text-purple-600 transition transform hover:scale-110 dark:text-gray-400 dark:hover:text-purple-500" aria-label="LinkedIn">
+                        <i class="fab fa-linkedin text-3xl"></i>
+                    </a>
+                    <a href="https://github.com/ikiytech" target="_blank" rel="noopener noreferrer" class="text-gray-500 hover:text-purple-600 transition transform hover:scale-110 dark:text-gray-400 dark:hover:text-purple-500" aria-label="GitHub">
+                        <i class="fab fa-github text-3xl"></i>
+                    </a>
+                    <!-- Removed Twitter link as requested -->
+                    <a href="https://www.instagram.com/ikizsa1203/" target="_blank" rel="noopener noreferrer" class="text-gray-500 hover:text-purple-600 transition transform hover:scale-110 dark:text-gray-400 dark:hover:text-purple-500" aria-label="Instagram">
+                        <i class="fab fa-instagram text-3xl"></i>
+                    </a>
+                </div>
+            </div>
+            <!-- Image -->
+            <div class="flex-1 max-w-xs relative" data-aos="fade-left">
+                <img src="https://ikiytech.github.io/my-profile-update/public/images/foto%20iki.jpg" alt="Muhammad Rifki" class="w-full h-full object-cover rounded-full border-4 border-purple-600 shadow-lg" style="aspect-ratio: 1 / 1;" onerror="this.onerror=null;this.src='https://placehold.co/300x300/cccccc/000000?text=Profile';"/>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="max-w-7xl mx-auto px-4 py-20 bg-white dark:bg-gray-900 transition-colors duration-300">
+            <h2 class="text-4xl font-bold mb-12 text-center text-gray-800 dark:text-gray-100" data-aos="fade-up">Tentang Saya</h2>
+            <div class="flex flex-col md:flex-row items-center md:items-start">
+                <div class="md:w-1/3 mb-8 md:mb-0" data-aos="fade-right">
+                    <img alt="Muhammad Rifki" class="rounded-full mx-auto border-4 border-purple-600 shadow-lg w-64 h-64 object-cover"
+                         src="https://ikiytech.github.io/my-profile-update/public/images/foto%20iki.jpg"
+                         onerror="this.onerror=null;this.src='https://placehold.co/300x300/cccccc/000000?text=Profile';"
+                    />
+                </div>
+                <div class="md:w-2/3 md:pl-12" data-aos="fade-left">
+                    <p class="text-lg text-gray-700 dark:text-gray-300 leading-relaxed mb-6">Saya adalah mahasiswa Informatika di Universitas Gunadarma dengan IPK 3.68. Saya memiliki minat yang kuat dalam machine learning, pengembangan website front-end, dan UI/UX website (bisa juga Figma). Saya selalu berusaha untuk menggabungkan kreativitas dan logika dalam setiap proyek yang saya buat atau kerjakan.</p>
+                    <p class="text-lg text-gray-700 dark:text-gray-300 leading-relaxed mb-6">Selain itu, saya aktif membuat proyek-proyek sederhana maupun proyek UTS kemarin, seperti website Kidutosy yang bertujuan untuk jual beli transaksi melalui web. Saya juga membuat penelitian ilmiah pada semester 6 yaitu NutriVision AI, sebuah Web NutriVisionAI untuk Evaluasi Gizi dan Grade Kesehatan Makanan Indonesia menggunakan dataset dari Kaggle dan model MobileNetV2 (dengan 2 model), yang di-deploy menggunakan VPS + Domain dan aaPanel.</p>
+                    <div class="mt-8">
+                        <h3 class="text-2xl font-semibold text-gray-800 dark:text-gray-100 mb-4">Keahlian Utama</h3>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                            <div class="flex items-center" data-aos="fade-up" data-aos-delay="100">
+                                <i class="fas fa-laptop-code text-purple-600 text-3xl mr-4"></i>
+                                <div>
+                                    <h4 class="text-xl font-semibold text-gray-800 dark:text-gray-100">Front-end Development</h4>
+                                    <p class="text-gray-600 dark:text-gray-300">Pengembangan antarmuka pengguna yang dinamis dan responsif.</p>
+                                </div>
+                            </div>
+                            <div class="flex items-center" data-aos="fade-up" data-aos-delay="200">
+                                <i class="fas fa-palette text-blue-600 text-3xl mr-4"></i>
+                                <div>
+                                    <h4 class="text-xl font-semibold text-gray-800 dark:text-gray-100">UI/UX Design (Figma)</h4>
+                                    <p class="text-gray-600 dark:text-gray-300">Merancang antarmuka pengguna yang intuitif dan menarik.</p>
+                                </div>
+                            </div>
+                            <div class="flex items-center" data-aos="fade-up" data-aos-delay="300">
+                                <i class="fab fa-python text-yellow-600 text-3xl mr-4"></i>
+                                <div>
+                                    <h4 class="text-xl font-semibold text-gray-800 dark:text-gray-100">Machine Learning (Python)</h4>
+                                    <p class="text-gray-600 dark:text-gray-300">Pengembangan model dan aplikasi berbasis kecerdasan buatan.</p>
+                                </div>
+                            </div>
+                            <div class="flex items-center" data-aos="fade-up" data-aos-delay="400">
+                                <i class="fas fa-server text-gray-600 text-3xl mr-4"></i>
+                                <div>
+                                    <h4 class="text-xl font-semibold text-gray-800 dark:text-gray-100">Deployment (VPS, aaPanel)</h4>
+                                    <p class="text-gray-600 dark:text-gray-300">Menerapkan aplikasi ke server dengan manajemen panel.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mt-12 grid grid-cols-2 sm:grid-cols-4 gap-6">
+                        <div class="text-center" data-aos="fade-up" data-aos-delay="500">
+                            <h4 class="text-3xl font-bold text-purple-600">5+</h4>
+                            <p class="text-gray-700 dark:text-gray-300">Proyek Selesai</p>
+                        </div>
+                        <div class="text-center" data-aos="fade-up" data-aos-delay="600">
+                            <h4 class="text-3xl font-bold text-purple-600">4</h4>
+                            <p class="text-gray-700 dark:text-gray-300">Organisasi</p>
+                        </div>
+                        <div class="text-center" data-aos="fade-up" data-aos-delay="700">
+                            <h4 class="text-3xl font-bold text-purple-600">4</h4>
+                            <p class="text-gray-700 dark:text-gray-300">Penghargaan</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Portfolio Section -->
+        <section id="portfolio" class="bg-gray-100 dark:bg-gray-800 py-20 transition-colors duration-300">
+            <div class="max-w-7xl mx-auto px-4">
+                <h2 class="text-4xl font-bold mb-12 text-center text-gray-800 dark:text-gray-100" data-aos="fade-up">Portofolio</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8">
+                    <!-- Project 1: Kidutosy -->
+                    <div class="relative group overflow-hidden rounded-lg shadow-lg" data-aos="fade-up" data-aos-delay="100">
+                        <div class="aspect-w-16 aspect-h-9">
+                            <img alt="Website Kidutosy" class="object-cover transition-transform duration-500 group-hover:scale-110"
+                                 src="https://private-user-images.githubusercontent.com/60310528/406046858-219c52c0-8898-4d3d-9dd3-5cc42bcfd537.png"
+                                 onerror="this.onerror=null;this.src='https://placehold.co/750x422/A78BFA/ffffff?text=Kidutosy+Website+Fallback';"
+                            />
+                        </div>
+                        <div class="absolute inset-0 bg-gradient-to-t from-black opacity-60 group-hover:opacity-40 transition-opacity duration-500"></div>
+                        <div class="absolute bottom-0 left-0 right-0 p-4 text-white">
+                            <h3 class="text-xl font-semibold">Website Kidutosy</h3>
+                            <p class="text-sm mt-1">Website jual beli transaksi untuk anak-anak.</p>
+                            <p class="text-xs mt-2"><span class="font-medium">Tools:</span> HTML, CSS, JavaScript, PHP, MySQL</p>
+                        </div>
+                    </div>
+                    <!-- Project 2: NutriVision AI -->
+                    <div class="relative group overflow-hidden rounded-lg shadow-lg" data-aos="fade-up" data-aos-delay="200">
+                        <div class="aspect-w-16 aspect-h-9">
+                            <img alt="NutriVision AI Website" class="object-cover transition-transform duration-500 group-hover:scale-110"
+                                 src="https://i.ibb.co/0RXpb1R5/Screenshot-2025-07-16-at-13-45-57-Prediksi-Gizi-Makanan.png"
+                                 onerror="this.onerror=null;this.src='https://placehold.co/750x422/60A5FA/ffffff?text=NutriVision+AI+Fallback';"
+                            />
+                        </div>
+                        <div class="absolute inset-0 bg-gradient-to-t from-black opacity-60 group-hover:opacity-40 transition-opacity duration-500"></div>
+                        <div class="absolute bottom-0 left-0 right-0 p-4 text-white">
+                            <h3 class="text-xl font-semibold">NutriVision AI</h3>
+                            <p class="text-sm mt-1">Evaluasi Gizi dan Grade Kesehatan Makanan Indonesia berbasis AI.</p>
+                            <p class="text-xs mt-2"><span class="font-medium">Tools:</span> Python, MobileNetV2, Kaggle Dataset, VPS, Domain, aaPanel</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Certifications Section -->
+        <section id="certifications" class="bg-white dark:bg-gray-900 py-20 px-4 transition-colors duration-300">
+            <div class="max-w-7xl mx-auto">
+                <h2 class="text-4xl font-bold text-center mb-8 text-gray-800 dark:text-gray-100" data-aos="fade-up"></h2>
+                <p class="text-lg text-gray-600 dark:text-gray-300 text-center mb-12" data-aos="fade-up" data-aos-delay="100">
+                   
+                </p>
+                <!-- Removed certification images as requested -->
+                <div class="text-center text-gray-500 dark:text-gray-400" data-aos="fade-up" data-aos-delay="200">
+                    <p></p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Experience Section -->
+        <section id="experience" class="max-w-7xl mx-auto px-4 py-20 bg-white dark:bg-gray-900 transition-colors duration-300">
+            <h2 class="text-4xl font-bold mb-12 text-center text-gray-800 dark:text-gray-100" data-aos="fade-up">Pengalaman Kerja</h2>
+            <div class="relative">
+                <div class="hidden md:block absolute left-1/2 transform -translate-x-1/2 h-full border-l-2 border-gray-200 dark:border-gray-700"></div>
+                <div class="space-y-12">
+                    <!-- Experience 1 -->
+                    <div class="flex items-start md:flex-row-reverse" data-aos="fade-right">
+                        <div class="hidden md:block w-1/2"></div>
+                        <div class="flex flex-col items-center md:w-1/2">
+                            <div class="w-4 h-4 bg-purple-600 rounded-full border-4 border-white dark:border-gray-900"></div>
+                            <div class="flex-1 w-px bg-gray-200 dark:bg-gray-700 mt-2"></div>
+                        </div>
+                        <div class="md:w-1/2 w-full mt-4 md:mt-0 px-6">
+                            <div class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300">
+                                <h3 class="text-2xl font-semibold text-gray-800 dark:text-gray-100">Project UTS - Website Kidutosy</h3>
+                                <p class="text-gray-600 dark:text-gray-300 font-medium">Universitas Gunadarma</p>
+                                <p class="text-gray-500 dark:text-gray-400 text-sm mt-1">Semester 5 (Estimasi: Sep 2023 - Feb 2024)</p>
+                                <p class="mt-4 text-gray-700 dark:text-gray-300">Mengembangkan website jual beli transaksi Kidutosy sebagai proyek Ujian Tengah Semester.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Experience 2 -->
+                    <div class="flex items-start" data-aos="fade-left">
+                        <div class="hidden md:block w-1/2"></div>
+                        <div class="flex flex-col items-center md:w-1/2">
+                            <div class="w-4 h-4 bg-purple-600 rounded-full border-4 border-white dark:border-gray-900"></div>
+                            <!-- Removed the vertical line for the last item as per original timeline structure -->
+                        </div>
+                        <div class="md:w-1/2 w-full mt-4 md:mt-0 px-6">
+                            <div class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300">
+                                <h3 class="text-2xl font-semibold text-gray-800 dark:text-gray-100">Penelitian Ilmiah - NutriVision AI</h3>
+                                <p class="text-gray-600 dark:text-gray-300 font-medium">Universitas Gunadarma</p>
+                                <p class="text-gray-500 dark:text-gray-400 text-sm mt-1">Semester 6 (Estimasi: Mar 2024 - Sekarang)</p>
+                                <p class="mt-4 text-gray-700 dark:text-gray-300">Melakukan penelitian dan pengembangan Web NutriVisionAI untuk evaluasi gizi makanan Indonesia.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="relative max-w-7xl mx-auto px-4 py-20 bg-white dark:bg-gray-900 transition-colors duration-300">
+            <div class="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-purple-100 to-white opacity-20 pointer-events-none dark:from-gray-800 dark:to-gray-900"></div>
+            <h2 class="text-4xl font-bold mb-12 text-center text-gray-800 dark:text-gray-100 relative z-10" data-aos="fade-up">Kontak</h2>
+            <div class="flex flex-col lg:flex-row items-center lg:items-start relative z-10">
+                <div class="lg:w-1/2 w-full lg:pr-10" data-aos="fade-right">
+                    <form class="space-y-6" id="contact-form">
+                        <div>
+                            <label class="block text-gray-700 dark:text-gray-300 mb-2" for="name">Nama</label>
+                            <input type="text" id="name" class="w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500 transition bg-white dark:bg-gray-700 dark:border-gray-600 dark:text-gray-100" required placeholder="Masukkan nama Anda"/>
+                        </div>
+                        <div>
+                            <label class="block text-gray-700 dark:text-gray-300 mb-2" for="email">Email</label>
+                            <input type="email" id="email" class="w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500 transition bg-white dark:bg-gray-700 dark:border-gray-600 dark:text-gray-100" required placeholder="Masukkan email Anda"/>
+                        </div>
+                        <div>
+                            <label class="block text-gray-700 dark:text-gray-300 mb-2" for="message">Pesan</label>
+                            <textarea id="message" class="w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500 transition bg-white dark:bg-gray-700 dark:border-gray-600 dark:text-gray-100" required rows="5" placeholder="Masukkan pesan Anda"></textarea>
+                        </div>
+                        <button type="submit" class="w-full bg-purple-600 text-white py-3 rounded-full hover:bg-purple-700 transition-colors font-semibold">Kirim Pesan</button>
+                    </form>
+                </div>
+                <div class="lg:w-1/2 w-full mt-12 lg:mt-0 lg:pl-10 flex flex-col items-center lg:items-start" data-aos="fade-left">
+                    <div class="flex items-center mb-6">
+                        <i class="fas fa-envelope text-purple-600 text-2xl mr-4"></i>
+                        <div>
+                            <h3 class="text-xl font-semibold text-gray-800 dark:text-gray-100">Email</h3>
+                            <a href="mailto:virya.brightly@gmail.com" class="text-purple-600 hover:underline">virya.brightly@gmail.com</a>
+                        </div>
+                    </div>
+                    <div class="flex items-center mb-6">
+                        <i class="fas fa-phone-alt text-purple-600 text-2xl mr-4"></i>
+                        <div>
+                            <h3 class="text-xl font-semibold text-gray-800 dark:text-gray-100">Telepon</h3>
+                            <a href="tel:+6281513335320" class="text-purple-600 hover:underline">+62 81513335320</a>
+                        </div>
+                    </div>
+                    <div class="flex justify-center lg:justify-start space-x-6 mt-6">
+                        <a href="https://www.linkedin.com/in/muhammadrifki12/" class="text-gray-500 hover:text-purple-600 transition transform hover:scale-110 dark:text-gray-400 dark:hover:text-purple-500" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+                            <i class="fab fa-linkedin text-2xl"></i>
+                        </a>
+                        <a href="https://github.com/ikiytech" class="text-gray-500 hover:text-purple-600 transition transform hover:scale-110 dark:text-gray-400 dark:hover:text-purple-500" aria-label="GitHub">
+                            <i class="fab fa-github text-2xl"></i>
+                        </a>
+                        <!-- Removed Twitter link as requested -->
+                        <a href="https://www.instagram.com/ikizsa1203/" class="text-gray-500 hover:text-purple-600 transition transform hover:scale-110 dark:text-gray-400 dark:hover:text-purple-500" aria-label="Instagram">
+                            <i class="fab fa-instagram text-2xl"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-gray-100 py-12 relative">
+        <div class="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-purple-100 to-transparent opacity-10 pointer-events-none dark:from-gray-800 dark:to-gray-900"></div>
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="flex flex-col md:flex-row md:justify-between" data-aos="fade-up">
+                <div class="mb-8 md:mb-0 md:w-1/3">
+                    <h3 class="text-xl font-semibold mb-4">Muhammad Rifki</h3>
+                    <p class="text-gray-400">Mahasiswa Informatika yang berfokus pada pengembangan perangkat lunak, dengan minat di machine learning, front-end development, dan desain UI/UX.</p>
+                </div>
+                <div class="mb-8 md:mb-0 md:w-1/3">
+                    <h3 class="text-xl font-semibold mb-4">Navigasi</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#home" class="cursor-pointer text-gray-400 hover:text-purple-500 transition-colors">Beranda</a></li>
+                        <li><a href="#about" class="cursor-pointer text-gray-400 hover:text-purple-500 transition-colors">Tentang Saya</a></li>
+                        <li><a href="#portfolio" class="cursor-pointer text-gray-400 hover:text-purple-500 transition-colors">Portofolio</a></li>
+                        <li><a href="#experience" class="cursor-pointer text-gray-400 hover:text-purple-500 transition-colors">Pengalaman</a></li>
+                        <li><a href="#certifications" class="cursor-pointer text-gray-400 hover:text-purple-500 transition-colors">Sertifikasi</a></li>
+                        <li><a href="#contact" class="cursor-pointer text-gray-400 hover:text-purple-500 transition-colors">Kontak</a></li>
+                    </ul>
+                </div>
+                <div class="md:w-1/3">
+                    <h3 class="text-xl font-semibold mb-4">Ikuti Saya</h3>
+                    <div class="flex space-x-6">
+                        <a href="https://www.linkedin.com/in/muhammadrifki12/" class="text-gray-500 hover:text-purple-500 transition-transform" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+                            <i class="fab fa-linkedin text-2xl"></i>
+                        </a>
+                        <a href="https://github.com/ikiytech" class="text-gray-500 hover:text-purple-500 transition-transform" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+                            <i class="fab fa-github text-2xl"></i>
+                        </a>
+                        <!-- Removed Twitter link as requested -->
+                        <a href="https://www.instagram.com/ikizsa1203/" class="text-gray-500 hover:text-purple-500 transition-transform" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+                            <i class="fab fa-instagram text-2xl"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="mt-12 border-t border-gray-700"></div>
+            <div class="mt-6 flex flex-col md:flex-row md:justify-between items-center text-sm text-gray-500">
+                <p>© 2024 Muhammad Rifki. All rights reserved.</p>
+                <a href="#home" class="cursor-pointer mt-4 md:mt-0 text-gray-400 hover:text-purple-500 transition-colors">Kembali ke atas ↑</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- AOS Initialization -->
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 1000, // Durasi animasi
+            easing: 'ease-in-out', // Fungsi easing
+            once: true // Apakah animasi hanya terjadi sekali
+        });
+    </script>
+
+    <script>
+        // JavaScript for mobile menu toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileMenuButton.addEventListener('click', () => {
+            if (mobileMenu.classList.contains('max-h-0')) {
+                mobileMenu.classList.remove('max-h-0', 'opacity-0', '-translate-y-2');
+                mobileMenu.classList.add('max-h-screen', 'opacity-100', 'translate-y-0');
+            } else {
+                mobileMenu.classList.remove('max-h-screen', 'opacity-100', 'translate-y-0');
+                mobileMenu.classList.add('max-h-0', 'opacity-0', '-translate-y-2');
+            }
+        });
+
+        // Close mobile menu when a link is clicked
+        const mobileMenuLinks = mobileMenu.querySelectorAll('a');
+        mobileMenuLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.remove('max-h-screen', 'opacity-100', 'translate-y-0');
+                mobileMenu.classList.add('max-h-0', 'opacity-0', '-translate-y-2');
+            });
+        });
+
+        // Dark Mode Toggle Script
+        document.addEventListener("DOMContentLoaded", function() {
+            const switchButton = document.getElementById("theme-switch");
+            const switchButtonMobile = document.getElementById("theme-switch-mobile");
+            const body = document.body;
+
+            // Function to apply theme
+            function applyTheme(isDarkMode) {
+                body.classList.toggle("dark", isDarkMode);
+                // Update desktop switch
+                switchButton.classList.toggle("switch-dark-mode", isDarkMode);
+                switchButton.classList.toggle("switch-light-mode", !isDarkMode);
+                switchButton.querySelector("span").classList.toggle("translate-x-6", isDarkMode);
+                switchButton.querySelector("span").classList.toggle("translate-x-1", !isDarkMode);
+                switchButton.setAttribute("aria-checked", isDarkMode);
+
+                // Update mobile switch
+                switchButtonMobile.classList.toggle("switch-dark-mode", isDarkMode);
+                switchButtonMobile.classList.toggle("switch-light-mode", !isDarkMode);
+                switchButtonMobile.querySelector("span").classList.toggle("translate-x-6", isDarkMode);
+                switchButtonMobile.querySelector("span").classList.toggle("translate-x-1", !isDarkMode);
+                switchButtonMobile.setAttribute("aria-checked", isDarkMode);
+            }
+
+            // Initial theme check (e.g., from local storage or system preference)
+            // For simplicity, we'll start with light mode and let the toggle change it.
+            // In a real app, you'd check localStorage or prefers-color-scheme.
+            let isDarkMode = false; // Initial state: light mode
+            applyTheme(isDarkMode);
+
+            switchButton.addEventListener("click", function() {
+                isDarkMode = !isDarkMode;
+                applyTheme(isDarkMode);
+            });
+            switchButtonMobile.addEventListener("click", function() {
+                isDarkMode = !isDarkMode;
+                applyTheme(isDarkMode);
+            });
+        });
+
+        // Typewriter Effect
+        document.addEventListener("DOMContentLoaded", function() {
+            const text = "Muhammad Rifki"; // Your name
+            const speed = 100; // typing speed in ms
+            const typewriter = document.getElementById("typewriter");
+            let index = 0;
+            let deleting = false;
+
+            function type() {
+                if (!deleting) {
+                    if (index < text.length) {
+                        typewriter.innerHTML += text.charAt(index);
+                        index++;
+                        setTimeout(type, speed);
+                    } else {
+                        deleting = true; // Start deleting after typing completes
+                        setTimeout(type, 1000); // Optional delay before starting deletion
+                    }
+                } else {
+                    if (index > 0) {
+                        typewriter.innerHTML = text.substring(0, index - 1);
+                        index--;
+                        setTimeout(type, speed / 2); // Faster deletion speed
+                    } else {
+                        deleting = false; // Start typing again
+                        setTimeout(type, 500); // Optional delay before starting typing again
+                    }
+                }
+            }
+
+            type(); // Start the typewriter effect
+        });
+
+        // Basic form submission handling (for demonstration)
+        const contactForm = document.getElementById('contact-form');
+        if (contactForm) {
+            contactForm.addEventListener('submit', function(event) {
+                event.preventDefault(); // Prevent default form submission
+                // In a real application, you would send this data to a backend server
+                console.log('Form submitted!');
+                console.log('Nama:', document.getElementById('name').value);
+                console.log('Email:', document.getElementById('email').value);
+                console.log('Pesan:', document.getElementById('message').value);
+
+                // You could add a success message or clear the form here
+                alert('Pesan Anda telah terkirim!'); // Using alert for simplicity, consider a custom modal in a real app
+                contactForm.reset(); // Clear the form fields
+            });
+        }
+    </script>
+</body>
+</html>
